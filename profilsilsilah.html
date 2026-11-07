@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Thomas - Roots & Branches</title>
+    <style>
+        /* --- VARIABEL WARNA & RESET --- */
+        :root {
+            --bg-color: #f9f7f1;
+            --card-bg: #ffffff;
+            --text-main: #3e3228;
+            --text-muted: #6b5b4f;
+            --accent-gold: #c5a059;
+            --border-light: #e0d5c1;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- NAVIGASI --- */
+        nav {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--accent-gold); }
+        .nav-brand { font-size: 1.2rem; color: var(--accent-gold); letter-spacing: 1px; }
+
+        /* --- HERO SECTION (FOTO UTAMA) --- */
+        .hero {
+            max-width: 900px;
+            margin: 60px auto 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero-img-container {
+            width: 250px;
+            height: 300px;
+            margin: 0 auto 30px;
+            border: 8px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            background-color: var(--border-light);
+            /* Placeholder untuk foto */
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        .hero .dates {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .hero .quote {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--accent-gold);
+            border-bottom: 1px solid var(--accent-gold);
+            padding: 20px 0;
+        }
+
+        /* --- KONTEN UTAMA --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Bagian Biografi */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border-light);
+        }
+        .bio-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 50px;
+            text-align: justify;
+        }
+
+        /* Bagian Timeline */
+        .timeline {
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--bg-color);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+        }
+        .timeline-year {
+            font-weight: bold;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .timeline-desc {
+            color: var(--text-muted);
+        }
+
+        /* Bagian Galeri Foto */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: var(--card-bg);
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            background-color: var(--border-light);
+            margin-bottom: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 2rem;
+        }
+        .gallery-caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <a href="index.html">← Kembali ke Pohon Keluarga</a>
+        <div class="nav-brand">Roots & Branches</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-img-container">
+            <!-- Ganti dengan <img src="thomas.jpg" style="width:100%; height:100%; object-fit:cover;"> -->
+            📷
+        </div>
+        <h1>Thomas</h1>
+        <p class="dates">12 Maret 1920 — 5 November 1998</p>
+        <p class="quote">"Seorang ayah yang sabar, seorang kakek yang penuh cerita, dan pilar yang tak tergoyahkan bagi keluarga kita."</p>
+    </section>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        
+        <!-- Biografi -->
+        <h2 class="section-title">Tentang Thomas</h2>
+        <p class="bio-text">
+            Thomas adalah anak pertama dari Arthur dan Eleanor. Tumbuh di Oak Creek Farm, ia belajar arti kerja keras dan ketulusan sejak usia dini. Setelah menyelesaikan pendidikannya, Thomas mengabdikan dirinya sebagai seorang guru sekolah dasar selama lebih dari 30 tahun, membentuk ribuan karakter anak-anak di kotanya. 
+            <br><br>
+            Ia dikenal sebagai pribadi yang tenang, suka membaca buku sejarah di beranda rumah, dan selalu menyempatkan waktu untuk mengajar cucu-cucunya bermain catur. Warisan terbesarnya bukanlah harta, melainkan nilai-nilai kejujuran dan kasih sayang yang ia tanamkan kepada William dan seluruh keturunannya.
+        </p>
+
+        <!-- Garis Waktu -->
+        <h2 class="section-title">Garis Waktu Kehidupan</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1920</div>
+                <div class="timeline-desc">Lahir di Oak Creek Farm sebagai anak pertama dari Arthur & Eleanor.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1942</div>
+                <div class="timeline-desc">Lulus dari universitas dan mulai mengajar di sekolah dasar setempat.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1945</div>
+                <div class="timeline-desc">Menikah dengan cinta sejatinya dan dikaruniai seorang putra, William.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1975</div>
+                <div class="timeline-desc">Menerima penghargaan sebagai "Guru Teladan" tingkat provinsi.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1998</div>
+                <div class="timeline-desc">Menutup mata dengan tenang di rumah, dikelilingi oleh keluarga yang dicintainya.</div>
+            </div>
+        </div>
+
+        <!-- Galeri Kenangan -->
+        <h2 class="section-title">Galeri Kenangan</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-img">📷</div>
+                <p class="gallery-caption">Thomas muda di depan rumah kayu, 1938</p>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img">📷</div>
+                <p class="gallery-caption">Hari pernikahan dengan istri tercinta, 1945</p>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img">📷</div>
+                <p class="gallery-caption">Mengajar William bermain catur, 1955</p>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img">📷</div>
+                <p class="gallery-caption">Reuni keluarga besar di Oak Creek, 1980</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Keluarga Besar Arthur & Eleanor. Melestarikan kenangan untuk generasi mendatang.
+    </footer>
+
+</body>
+</html>

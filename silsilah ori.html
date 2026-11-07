@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silsilah Keluarga - Roots & Branches</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f9f7f1; /* Warna krem vintage */
+            color: #3e3228; /* Cokelat tua */
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, #f9f7f1, #f0ebe0);
+            border-bottom: 2px solid #c5a059; /* Aksen emas */
+        }
+        header h1 {
+            font-size: 2.8rem;
+            color: #3e3228;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header h1 span { color: #c5a059; }
+        header p {
+            font-style: italic;
+            color: #6b5b4f;
+            font-size: 1.1rem;
+        }
+
+        /* --- FAMILY TREE CONTAINER --- */
+        .tree-container {
+            width: 100%;
+            overflow-x: auto; /* Agar bisa di-scroll horizontal di HP */
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* --- CSS TREE LOGIC --- */
+        .tree ul {
+            padding-top: 20px; 
+            position: relative;
+            display: flex; 
+            justify-content: center;
+        }
+        .tree li {
+            float: left; text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 10px 0 10px;
+        }
+        /* Garis penghubung horizontal & vertikal */
+        .tree li::before, .tree li::after {
+            content: ''; position: absolute; top: 0; right: 50%;
+            border-top: 2px solid #c5a059; width: 50%; height: 20px;
+        }
+        .tree li::after {
+            right: auto; left: 50%;
+            border-left: 2px solid #c5a059;
+        }
+        /* Menghapus garis untuk anak tunggal */
+        .tree li:only-child::after, .tree li:only-child::before { display: none; }
+        .tree li:only-child { padding-top: 0; }
+        /* Menghapus garis dari anak pertama dan terakhir */
+        .tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+        .tree li:last-child::before { border-right: 2px solid #c5a059; border-radius: 0 5px 0 0; }
+        .tree li:first-child::after { border-radius: 5px 0 0 0; }
+        /* Garis vertikal turun dari orang tua */
+        .tree ul ul::before {
+            content: ''; position: absolute; top: 0; left: 50%;
+            border-left: 2px solid #c5a059; width: 0; height: 20px;
+        }
+
+        /* --- PERSON CARD DESIGN --- */
+        .person {
+            border: 1px solid #c5a059;
+            padding: 15px;
+            text-decoration: none;
+            color: #3e3228;
+            display: inline-block;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            min-width: 140px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .person:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
+            background: #fdfbf7;
+        }
+        .person .avatar {
+            width: 60px; height: 60px;
+            background-color: #e0d5c1;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; font-weight: bold; color: #3e3228;
+            border: 2px solid #c5a059;
+        }
+        .person h3 { font-size: 1rem; margin-bottom: 5px; }
+        .person p { font-size: 0.85rem; color: #6b5b4f; margin: 0; }
+        .person .role { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: #c5a059; 
+            margin-top: 5px; 
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #6b5b4f;
+            border-top: 1px solid #e0d5c1;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Roots & <span>Branches</span></h1>
+        <p>Silsilah Keluarga Besar Arthur & Eleanor</p>
+    </header>
+
+    <div class="tree-container">
+        <div class="tree">
+            <ul>
+                <!-- GENERASI 1 (Kakek Nenek Buyut) -->
+                <li><a href="profilsilsilah.html">
+                    <div class="person">
+                        <!--div class="avatar">A&E</div -->
+                        <img src="abi.png" class="avatar">
+                        <h3>Arthur & Eleanor</h3>
+                        <p>1892 - 1980</p>
+                        <div class="role">Leluhur Utama</div>
+                    </div>
+                    </a>
+                    <ul>
+                        <!-- GENERASI 2 (Anak Pertama) -->
+                        <li>
+                            <div class="person">
+                                <div class="avatar">T</div>
+                                <h3>Thomas</h3>
+                                <p>1920 - 1998</p>
+                                <div class="role">Anak Pertama</div>
+                            </div>
+                            <ul>
+                                <!-- GENERASI 3 (Cucu 1) -->
+                                <li>
+                                    <div class="person">
+                                        <div class="avatar">W</div>
+                                        <h3>William</h3>
+                                        <p>1945 - Sekarang</p>
+                                        <div class="role">Cucu</div>
+                                    </div>
+                                </li>
+                                <!-- GENERASI 3 (Cucu 2) -->
+                                <li>
+                                    <div class="person">
+                                        <div class="avatar">J</div>
+                                        <h3>Johny</h3>
+                                        <p>1950 - Sekarang</p>
+                                        <div class="role">Cucu</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- GENERASI 2 (Anak Kedua) -->
+                        <li>
+                            <div class="person">
+                                <div class="avatar">E</div>
+                                <h3>Edward</h3>
+                                <p>1918 - 1990</p>
+                                <div class="role">Anak Kedua</div>
+                            </div>
+                            <ul>
+                                <!-- GENERASI 3 (Cucu) -->
+                                <li>
+                                    <div class="person">
+                                        <div class="avatar">H</div>
+                                        <h3>Henry</h3>
+                                        <p>1950 - Sekarang</p>
+                                        <div class="role">Cucu</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- GENERASI 2 (Anak Ketiga) -->
+                        <li>
+                            <div class="person">
+                                <div class="avatar">C</div>
+                                <h3>Clara</h3>
+                                <p>1921 - 2010</p>
+                                <div class="role">Anak Ketiga</div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Keluarga Besar Arthur & Eleanor. Dibuat dengan ❤️ untuk melestarikan kenangan.
+    </footer>
+
+</body>
+</html>
